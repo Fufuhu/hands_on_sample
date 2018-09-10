@@ -102,3 +102,24 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+hands_on_sample/pip-selfcheck.json
+.vscode/settings.json
+hands_on_sample/lib64
+hands_on_sample/pyvenv.cfg
+hands_on_sample/bin/activate
+hands_on_sample/bin/activate.csh
+hands_on_sample/bin/activate.fish
+hands_on_sample/bin/django-admin
+hands_on_sample/bin/django-admin.py
+hands_on_sample/bin/easy_install
+hands_on_sample/bin/easy_install-3.6
+hands_on_sample/bin/epylint
+hands_on_sample/bin/isort
+hands_on_sample/bin/pip
+hands_on_sample/bin/pip3
+hands_on_sample/bin/pip3.6
+hands_on_sample/bin/pylint
+hands_on_sample/bin/pyreverse
+hands_on_sample/bin/python
+hands_on_sample/bin/python3
+hands_on_sample/bin/symilar

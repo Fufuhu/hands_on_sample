@@ -123,3 +123,6 @@ hands_on_sample/bin/pyreverse
 hands_on_sample/bin/python
 hands_on_sample/bin/python3
 hands_on_sample/bin/symilar
+hands_on_sample/bin/easy_install-3.5
+hands_on_sample/bin/pip3.5
+sampleapp/pyvenv.cfg

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Comments{% endblock title %}
+{% block content %}
+<h1>{{ title }}</h1>
+{% for comment in comments %}
+{% include 'comment.html' %}
+{% endfor %}
+<a href="{% url 'guestbook_plus:comment_list' %}">トップに戻る</a>
+{% endblock content %}

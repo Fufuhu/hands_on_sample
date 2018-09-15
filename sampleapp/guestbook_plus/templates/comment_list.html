@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Comments{% endblock title %}
+{% block content %}
+    {% include 'thread_list.html' %}
+    <hr/>
+    {% for comment in comments %}
+    {% include 'comment.html' %}
+    <a href="{% url 'guestbook_plus:comment_thread' comment.comment_id %}" class="btn btn-dafault">スレッドを見る</a>
+    {% endfor %}
+    <hr/>
+    {% include 'root_comment_form.html'  %}
+{% endblock content %}

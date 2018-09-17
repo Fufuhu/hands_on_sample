@@ -8,7 +8,7 @@ before_script:
 build:
    stage: build
    script:
-     - docker build -t registry.gitlab.com/fufuhu/hands_on_sample/guestbook:latest .
-     - docker push registry.gitlab.com/fufuhu/hands_on_sample:latest
+     - docker build -t registry.gitlab.com/Fufuhu/hands_on_sample/guestbook:latest .
+     - docker push registry.gitlab.com/Fufuhu/hands_on_sample:latest
    tags:
      - docker

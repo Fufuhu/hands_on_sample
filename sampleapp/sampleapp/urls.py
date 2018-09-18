@@ -20,4 +20,5 @@ from django.conf.urls import url, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^guestbook/', include('guestbook_plus.urls')),
+    url(r'^api/', include('guestbook_api.urls')),
 ]

@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'guestbook_plus',
+    'guestbook_api',
+    'rest_framework',
 ]
 
 

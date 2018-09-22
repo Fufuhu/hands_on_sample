@@ -49,5 +49,5 @@ class CommentListView(View):
         response_params = {
             'comments': comments,
         }
-        return redirect(to='guestbook/comments/')
+        return redirect(to='/guestbook/comments/')
         # return render(request, 'comment_list.html', response_params)

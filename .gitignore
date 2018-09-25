@@ -130,3 +130,5 @@ hands_on_sample/bin/chardetect
 hands_on_sample/bin/pyppeteer-install
 hands_on_sample/bin/tqdm
 hands_on_sample/man/man1/tqdm.1
+
+mysql/

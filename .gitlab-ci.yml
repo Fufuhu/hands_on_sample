@@ -31,4 +31,4 @@ guestbook_test:
   script:
     - |
       cd /sampleapp
-      test_script.sh
+      ./test_script.sh

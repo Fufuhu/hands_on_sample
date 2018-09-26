@@ -1,24 +1,14 @@
-image: docker:latest
 stages:
   - build
   - test
 
-services:
-  - docker:dind
-  - name: mysql:5
-    alias: mysql
-  
-variables:
-  MYSQL_ROOT_PASSWORD: mysqlpassword
-  MYSQL_USER: "guestbook"
-  MYSQL_PASSWORD: "guestbook_pass"
-  MYSQL_DATABASE: "guestbook"
-
-before_script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
-
 guestbook_image_build:
   stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
   script:
     - docker build -t registry.gitlab.com/fufuhu/hands_on_sample/guestbook:latest .
     - docker push registry.gitlab.com/fufuhu/hands_on_sample/guestbook:latest
@@ -27,9 +17,17 @@ guestbook_image_build:
 
 guestbook_test:
   stage: test
+  image: registry.gitlab.com/fufuhu/hands_on_sample/guestbook:latest
+  services:
+  - name: mysql:5
+    alias: mysql
+  variables:
+    MYSQL_ROOT_PASSWORD: mysqlpassword
+    MYSQL_USER: "guestbook"
+    MYSQL_PASSWORD: "guestbook_pass"
+    MYSQL_DATABASE: "guestbook"
   script:
     - |
       echo "Before running test. Wait 10 sec."
       sleep 10
-      docker run --rm registry.gitlab.com/fufuhu/hands_on_sample/guestbook:latest 'python manage.py test --settings sampleapp.settings_prod'
-
+      python manage.py test --settings sampleapp.settings_prod

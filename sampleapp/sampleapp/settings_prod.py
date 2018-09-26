@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import pymysql
 
-print("hogehogehogehoge")
 
 pymysql.install_as_MySQLdb()
 
@@ -83,7 +82,7 @@ WSGI_APPLICATION = 'sampleapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'mysql',
+        'HOST': os.getenv('GUESTBOOK_DATABASE_HOST','mysql'),
         'PORT': '3306',
         'NAME': os.getenv('GUESTBOOK_DATABASE', 'guestbook'),
         'USER': 'guestbook',

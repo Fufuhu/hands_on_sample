@@ -4,13 +4,15 @@ services:
     build:
       context: ./
     entrypoint:
-      - /bin/sh
+      - /bin/bash
+    environment:
+      count: 0
+      result: ""
     command:
+      - -e
       - -c
       - |
-        sleep 10
-        python manage.py migrate --settings sampleapp.settings_prod
-        python manage.py runserver --settings sampleapp.settings_prod 0.0.0.0:8000
+        /sampleapp/test_script.sh
     ports:
       - "8000:8000"
 
@@ -22,7 +24,7 @@ services:
       MYSQL_ROOT_PASSWORD: mysqlpassword
       MYSQL_USER: "guestbook"
       MYSQL_PASSWORD: "guestbook_pass"
-      MYSQL_DATABASE: "guestbook"
+      MYSQL_DATABASE: "test_guestbook"
     ports:
       # For maintenance access.
       - "3306:3306"

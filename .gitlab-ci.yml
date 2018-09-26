@@ -1,5 +1,6 @@
 stages:
   - build
+  - test_prepare
   - test
 
 guestbook_image_build:
@@ -15,6 +16,7 @@ guestbook_image_build:
   tags:
     - docker
 
+
 guestbook_test:
   stage: test
   image: registry.gitlab.com/fufuhu/hands_on_sample/guestbook:latest
@@ -25,9 +27,8 @@ guestbook_test:
     MYSQL_ROOT_PASSWORD: mysqlpassword
     MYSQL_USER: "guestbook"
     MYSQL_PASSWORD: "guestbook_pass"
-    MYSQL_DATABASE: "guestbook"
+    MYSQL_DATABASE: "test_guestbook"
   script:
     - |
       cd /sampleapp
-      ls
-      python manage.py test --settings sampleapp.settings_prod
+      test_script.sh

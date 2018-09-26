@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': 'mysql',
         'PORT': '3306',
-        'NAME': 'guestbook',
+        'NAME': os.getenv('GUESTBOOK_DATABASE', 'guestbook'),
         'USER': 'guestbook',
         'PASSWORD': 'guestbook_pass',
         'ATOMIC_REQUESTS': True,

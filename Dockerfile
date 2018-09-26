@@ -4,5 +4,5 @@ COPY sampleapp /sampleapp
 WORKDIR /sampleapp
 RUN apk update && apk add gcc libffi-dev libc-dev openssl-dev
 RUN pip install -r requirements.txt
-ENTRYPOINT ["python"]
-CMD ["manage.py", "runserver", "0.0.0.0:8000"]
+ENTRYPOINT ["/bin/sh", "-c"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

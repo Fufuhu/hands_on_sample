@@ -1,11 +1,28 @@
-mysql:
+version: '2.3'
+services:
+  guestbook:
+    build:
+      context: ./
+    entrypoint:
+      - /bin/sh
+    command:
+      - -c
+      - |
+        sleep 10
+        python manage.py migrate --settings sampleapp.settings_prod
+        python manage.py runserver --settings sampleapp.settings_prod 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+
+  mysql:
     image: "mysql:5"
     volumes:
-        - ./mysql:/var/lib/mysql
+      - ./mysql:/var/lib/mysql
     environment:
-        MYSQL_ROOT_PASSWORD: mysqlpassword
-        MYSQL_USER: "guestbook"
-        MYSQL_PASSWORD: "guestbook_pass"
-        MYSQL_DATABASE: "guestbook"
+      MYSQL_ROOT_PASSWORD: mysqlpassword
+      MYSQL_USER: "guestbook"
+      MYSQL_PASSWORD: "guestbook_pass"
+      MYSQL_DATABASE: "guestbook"
     ports:
-        - "3306:3306"
+      # For maintenance access.
+      - "3306:3306"

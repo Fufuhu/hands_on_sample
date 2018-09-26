@@ -28,6 +28,6 @@ guestbook_test:
     MYSQL_DATABASE: "guestbook"
   script:
     - |
-      echo "Before running test. Wait 10 sec."
-      sleep 10
+      cd /sampleapp
+      ls
       python manage.py test --settings sampleapp.settings_prod

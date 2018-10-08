@@ -83,10 +83,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': os.getenv('GUESTBOOK_DATABASE_HOST','mysql'),
-        'PORT': '3306',
+        'PORT': os.getenv('GUESTBOOK_PORT', '3306'),
         'NAME': os.getenv('GUESTBOOK_DATABASE', 'guestbook'),
-        'USER': 'guestbook',
-        'PASSWORD': 'guestbook_pass',
+        'USER': os.getenv('GUESTBOOK_USER','guestbook'),
+        'PASSWORD': os.getenv('GUESTBOOK_PASSWORD', 'guestbook_pass'),
         'ATOMIC_REQUESTS': True,
     }
 }
